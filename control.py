@@ -43,11 +43,6 @@ while done==False:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done=True
-        
-        if event.type == pygame.JOYBUTTONDOWN:
-            print "Joystick button pressed."
-        if event.type == pygame.JOYBUTTONUP:
-            print "Joystick button released."
 
     screen.fill(WHITE)
     textPrinter.reset()
