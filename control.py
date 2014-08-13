@@ -92,6 +92,13 @@ while done==False:
 
     pygame.display.flip()
 
+    import serial
+    ser = serial.Serial(3)
+    print ser.name
+    ser.write("W")
+    ser.read();
+    ser.close()
+
     clock.tick(20)
 
 pygame.quit()
