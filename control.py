@@ -2,6 +2,7 @@
 # http://www.pygame.org/docs/ref/joystick.html
 
 import pygame
+import serial
 
 BLACK    = (   0,   0,   0)
 WHITE    = ( 255, 255, 255)
@@ -27,6 +28,7 @@ class TextPrinter:
     def unindent(self):
         self.x -= 10
 
+ser = serial.Serial(3)
 pygame.init()
  
 size = [500, 700]
@@ -92,13 +94,10 @@ while done==False:
 
     pygame.display.flip()
 
-    import serial
-    ser = serial.Serial(3)
-    print ser.name
     ser.write("W")
-    ser.read();
-    ser.close()
+    ser.read()
 
     clock.tick(20)
-
+    
+ser.close()
 pygame.quit()
