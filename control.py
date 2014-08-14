@@ -93,13 +93,13 @@ while done==False:
         textPrinter.unindent()
 
         if joystick.get_button(7):
-            ser.write(0x01)
+            ser.write(str(unichr(0x01)))
 
         if joystick.get_axis(3) < -0.5:
-            ser.write(0x02)
+            ser.write(str(unichr(0x02)))
 
         if joystick.get_axis(3) > 0.5:
-            ser.write(0x03)
+            ser.write(str(unichr(0x03)))
 
     pygame.display.flip()
 
