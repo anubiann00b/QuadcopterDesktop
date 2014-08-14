@@ -92,12 +92,18 @@ while done==False:
         
         textPrinter.unindent()
 
+        if joystick.get_button(7):
+            ser.write(0x01)
+
+        if joystick.get_axis(3) < -0.5:
+            ser.write(0x02)
+
+        if joystick.get_axis(3) > 0.5:
+            ser.write(0x03)
+
     pygame.display.flip()
 
-    ser.write("W")
-    ser.read()
-
     clock.tick(20)
-    
-ser.close()
+
+#ser.close()
 pygame.quit()
